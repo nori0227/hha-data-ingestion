@@ -14,7 +14,7 @@ import PyPDF2 ## import PyPDF2 for pdf files
 
 # Section 1:
 # 1. from Kaggle, downloaded two datasets and combined into one xls file
-# 2. put the file in the data subfolder
+# 2. put the file in the data folder
 # 3. defined the xls spreadsheet with the variable xls
 xls = xlrd.open_workbook(
     '/Users/nuri/Documents/GitHub/hha-data-ingestion/Data/Dataset.xls', on_demand=True)
