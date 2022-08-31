@@ -13,8 +13,7 @@ import xlrd ## import xlrd for excel files, tab names
 import PyPDF2 ## import PyPDF2 for pdf files
 
 # Section 1:
-# 1. from Kaggle, downloaded two datasets and combined into one xls file
-# 2. put the file in the data folder
+# 1. from Kaggle, downloaded two datasets and combined both into one xls file and put the file in the data subfolder
 # 3. defined the xls spreadsheet with the variable xls
 xls = xlrd.open_workbook(
     '/Users/nuri/Documents/GitHub/hha-data-ingestion/Data/Dataset.xls', on_demand=True)
@@ -26,3 +25,12 @@ tab1 = pd.read_excel(
     '/Users/nuri/Documents/GitHub/hha-data-ingestion/data/Dataset.xls', sheet_name='StudentsPerformance')
 tab2 = pd.read_excel(
     '/Users/nuri/Documents/GitHub/hha-data-ingestion/data/dataset.xls', sheet_name='Score')
+
+ Section 2:
+# 1. searched up for an open source json API via CMS
+# 2. using the already imported 'requests' and 'json' packages,set 'apiDataset' variable to the online request of the open source json API link
+
+apiDataset = requests.get(
+    'https://data.cms.gov/data-api/v1/dataset/60ccbf1c-d3f5-4354-86a3-465711d81c5a/data')
+apiDataset = apiDataset.json()
+
