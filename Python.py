@@ -36,6 +36,27 @@ apiDataset = requests.get(
     'https://data.cms.gov/data-api/v1/dataset/60ccbf1c-d3f5-4354-86a3-465711d81c5a/data')
 apiDataset = apiDataset.json()
 
+##section 3:
+## loaded api key that and connected to bigquery, 
+client = bigquery.Client.from_service_account_json('/Users/nuri/Dropbox/My Mac (Jannatul’s MacBook Air)/Downloads/jannatul-507-4089908b1a9c.json') ## create bigquery client
+## query public dataset
+query_job = client.query("SELECT  FROM `bigquery-public-data.bitcoin_blockchain.blocks` LIMIT 100") ## query public dataset
+## get results
+results = query_job.result() ## get results
+results
+use the 'results' command and name this as variable 'bigquery1'
+bigquery1 = pd.DataFrame(results.to_dataframe())
+
+## loaded api key that and connected to bigquery, 
+client = bigquery.Client.from_service_account_json('/Users/nuri/Dropbox/My Mac (Jannatul’s MacBook Air)/Downloads/jannatul-507-4089908b1a9c.json') ## create bigquery client
+## query public dataset
+query_job = client.query("SELECT  FROM `bigquery-public-data.bitcoin_blockchain.transactions` LIMIT 100") ## query public dataset
+## get results
+results = query_job.result() ## get results
+results
+use the 'results' command and name this as variable 'bigquery1'
+bigquery1 = pd.DataFrame(results.to_dataframe())
+
 
 
 
